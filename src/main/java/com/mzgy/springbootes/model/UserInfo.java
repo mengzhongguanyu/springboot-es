@@ -1,14 +1,24 @@
 package com.mzgy.springbootes.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
+
 /**
  * @author dongzh
  * @date 2021年03月31日 21:53
  * @function
  */
+@Document(indexName = "test_user")
 public class UserInfo {
+    @Id
     private Long id;
+    @Field(type = FieldType.Text)
     private String name;
+    @Field(type = FieldType.Integer)
     private Integer age;
+    @Field(type = FieldType.Text)
     private String desc;
 
     public UserInfo() {
